@@ -8,6 +8,7 @@
 		</div>
 		<div class="todos">
 			<div
+				:class="{ 'is-complete': todo.completed }"
 				class="todo"
 				v-for="todo in allTodos"
 				:key="todo.id"
