@@ -5,8 +5,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'Todos',
+    computed: mapGetters(['allTodos'])
 }
 </script>
 
