@@ -7,7 +7,12 @@
 			<span> <span class="complete-box"></span> = Complete </span>
 		</div>
 		<div class="todos">
-			<div class="todo" v-for="todo in allTodos" :key="todo.id">
+			<div
+				class="todo"
+				v-for="todo in allTodos"
+				:key="todo.id"
+				@dblclick="onDblClick(todo)"
+			>
 				{{ todo.title }}
 				<i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
 			</div>
@@ -25,7 +30,15 @@
 		},
 		computed: mapGetters(["allTodos"]),
 		methods: {
-			...mapActions(["fetchTodos", "deleteTodo"]),
+			...mapActions(["fetchTodos", "deleteTodo", "updateTodo"]),
+			onDblClick(todo) {
+				const updTodo = {
+					id: todo.id,
+					title: todo.title,
+					completed: !todo.completed,
+				};
+				this.updateTodo(updTodo);
+			},
 		},
 	};
 </script>
