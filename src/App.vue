@@ -1,39 +1,29 @@
 <template>
   <div id="app">
-    <div class="container">
-      <AddTodo />
-      <FilterTodos />
-      <Todos/>
-    </div>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
-<script>
-import Todos from './components/Todos.vue';
-import AddTodo from './components/AddTodo.vue';
-import FilterTodos from './components/FilterTodos.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from './components/HelloWorld.vue';
 
-export default {
-  name: 'App',
+@Component({
   components: {
-    Todos,
-    AddTodo,
-    FilterTodos
-  }
-}
+    HelloWorld,
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>
-body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  line-height: 1.6;
-  background: #e8f7f0;
-}
-
-.container{
-  max-width: 1100px;
-  margin: auto;
-  overflow: auto;
-  padding: 0 2rem;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
